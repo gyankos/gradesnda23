@@ -257,7 +257,41 @@ ISSN = {2078-2489},
 ABSTRACT = {A temporal model describes processes as a sequence of observable events characterised by distinguishable actions in time. Conformance checking allows these models to determine whether any sequence of temporally ordered and fully-observable events complies with their prescriptions. The latter aspect leads to Explainable and Trustworthy AI, as we can immediately assess the flaws in the recorded behaviours while suggesting any possible way to amend the wrongdoings. Recent findings on conformance checking and temporal learning lead to an interest in temporal models beyond the usual business process management community, thus including other domain areas such as Cyber Security, Industry 4.0, and e-Health. As current technologies for accessing this are purely formal and not ready for the real world returning large data volumes, the need to improve existing conformance checking and temporal model mining algorithms to make Explainable and Trustworthy AI more efficient and competitive is increasingly pressing. To effectively meet such demands, this paper offers KnoBAB, a novel business process management system for efficient Conformance Checking computations performed on top of a customised relational model. This architecture was implemented from scratch after following common practices in the design of relational database management systems. After defining our proposed temporal algebra for temporal queries (xtLTLf), we show that this can express existing temporal languages over finite and non-empty traces such as LTLf. This paper also proposes a parallelisation strategy for such queries, thus reducing conformance checking into an embarrassingly parallel problem leading to super-linear speed up. This paper also presents how a single xtLTLf operator (or even entire sub-expressions) might be efficiently implemented via different algorithms, thus paving the way to future algorithmic improvements. Finally, our benchmarks highlight that our proposed implementation of xtLTLf (KnoBAB) outperforms state-of-the-art conformance checking software running on LTLf logic.}
 }
 
+@INPROCEEDINGS{4384001,
 
+  author={Pesic, Maja and Schonenberg, Helen and van der Aalst, Wil M.P.},
+
+  booktitle={11th IEEE International Enterprise Distributed Object Computing Conference (EDOC 2007)}, 
+
+  title={DECLARE: Full Support for Loosely-Structured Processes}, 
+
+  year={2007},
+
+  volume={},
+
+  number={},
+
+  pages={287-287},
+
+  doi={10.1109/EDOC.2007.14}}
+
+
+
+@InProceedings{10.1007/978-3-642-54862-8_24,
+author="Reinbacher, Thomas
+and Rozier, Kristin Yvonne
+and Schumann, Johann",
+editor="{\'A}brah{\'a}m, Erika
+and Havelund, Klaus",
+title="Temporal-Logic Based Runtime Observer Pairs for System Health Management of Real-Time Systems",
+booktitle="Tools and Algorithms for the Construction and Analysis of Systems",
+year="2014",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="357--372",
+abstract="We propose a real-time, Realizable, Responsive, Unobtrusive Unit (rt-R2U2) to meet the emerging needs for System Health Management (SHM) of new safety-critical embedded systems like automated vehicles, Unmanned Aerial Systems (UAS), or small satellites. SHM for these systems must be able to handle unexpected situations and adapt specifications quickly during flight testing between closely-timed consecutive missions, not mid-mission, necessitating fast reconfiguration. They must enable more advanced probabilistic reasoning for diagnostics and prognostics while running aboard limited hardware without affecting the certified on-board software. We define and prove correct translations of two real-time projections of Linear Temporal Logic to two types of efficient observer algorithms to continuously assess the status of the system. A synchronous observer yields an instant abstraction of the satisfaction check, whereas an asynchronous observer concretizes this abstraction at a later, a priori known, time. By feeding the system's real-time status into a statistical reasoning unit, e.g., based on Bayesian networks, we enable advanced health estimation and diagnosis. We experimentally demonstrate our novel framework on real flight data from NASA's Swift UAS. By on-boarding rt-R2U2 aboard an existing FPGA already built into the standard UAS design and seamlessly intercepting sensor values through read-only observations of the system bus, we avoid system integration problems of software instrumentation or added hardware. The flexibility of our approach with regard to changes in the monitored specification is not due to the reconfigurability offered by FPGAs; it is a benefit of the modularity of our observers and would also be available on non-reconfigurable hardware platforms such as ASICs.",
+isbn="978-3-642-54862-8"
+}
 
 
 @book{DBLP:books/sp/Weske19,
