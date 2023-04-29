@@ -279,34 +279,8 @@ In computer science, Business Process Management refers to the investigation of 
 \end{figure}
 \begin{table*}[!t]
 	\centering
-\caption{Declare \textsf{templates} supported by MP-Declare Log Generator, MINERFul, and our current implementation. $A\wedge p$ ($B\wedge q$) represents the \textit{activation} (\textit{target}) condition, $A$ ($B$) denotes the activity label, and $p$ ($q$) is the data payload condition.}\label{tab:dt}
-\resizebox{\textwidth}{!}{\begin{tabular}{l|p{9cm}|l}
-	\toprule
-	Exemplifying clause ($c_l$) & Natural Language Specification for Traces & \LTLf Semantics ($\llbracket c_l \rrbracket$)\\
-	\midrule
-	\textsf{Init($A,p$)} &  The trace should start with an activation & $A\wedge p$\\
-	\textsf{Exists($A,p,n+1$)} & Activations should occur at least $n$ times & $\Future(A\wedge p \left[\wedge \Next (\llbracket\textsf{Exists} (A,p,n)\rrbracket)\right]_{n>0})$\\
-	 %& \textsf{Absence($A,p,n+1$)}  & Activations should occur at most $n$ times & $\neg \llbracket\textsf{Exists}$($A,p,n+1$)$\rrbracket$\\
-	\textsf{Precedence($A,p,B,q$)}  & Events preceding the activations should not satisfy the target & $\WeakUntil{\neg(B\wedge p)}{(A\wedge p)}$\\
-	\textsf{ChainPrecedence($A,p,B,q$) }  & The activation is immediately preceded by the target. & $\Globally(\Next(A\wedge p)\Rightarrow (B\wedge q))$\\
-	%& \textsf{Choice($A,p,A',p'$) }  & One of the two activation  conditions must appear. & $\Future(A\wedge p)\vee\Future(A'\wedge p')$ \\
-	  \textsf{Response($A,p,B,q$) } & The activation is either followed by or simultaneous to  the target. & $\Globally((A\wedge p)\Rightarrow\Future(B\wedge q))$ \\
-	  \textsf{ChainResponse($A,p,B,q$) }  & The activation is immediately followed by the target. & $\Globally((A\wedge p)\Rightarrow \Next(B\wedge q))$\\
-	  \textsf{RespExistence($A,p,B,q$) }  & The activation requires the existence of the target.& $\Future(A\wedge p)\Rightarrow\Future(B\wedge q)$ \\
-	 %& \textsf{ExlChoice($A,p,A',p'$) } & Only one activation condition must happen. & $\llbracket\DeclareClause{Choice}{A}{p}{A'}{p'}\rrbracket\wedge \llbracket\DeclareClause{NotCoExistence}{A}{p}{A'}{p'}\rrbracket$\\ 
-	  \textsf{CoExistence($A,p,B,q$) }  & \textsf{RespExistence}, and vice versa. & $ \llbracket\DeclareClause{RespExistence}{A}{p}{B}{q}\rrbracket\wedge \llbracket\DeclareClause{RespExistence}{B}{q}{A}{p}\rrbracket$\\
-	 \textsf{Succession($A,p,B,q$) }  & The target should only follow the activation. & $\llbracket\DeclareClause{Precedence}{A}{p}{B}{q}\rrbracket\wedge \llbracket\DeclareClause{Response}{A}{p}{B}{q}\rrbracket$\\
-
-	  \textsf{ChainSuccession($A,p,B,q$) }  & Activation immediately follows the target, and the target immediately preceeds the activation. & $\Globally((A\wedge p)\Leftrightarrow\Next(B\wedge q))$\\
-	 \textsf{AltResponse($A,p,B,q$) }  & If an activation occurs, no other activations must happen until the target occurs.  & $\Globally((A\wedge p)\Rightarrow(\DUntil{\neg(A\wedge p)}{(B\wedge q)}))$\\
-	 \textsf{AltPrecedence($A,p,B,q$) }  & Every activation must be preceded by an target, without any other
-	 activation in between &   $\llbracket\DeclareClause{Precedence}{A}{p}{B}{q}\rrbracket\wedge \Globally((A\wedge p)\Rightarrow \Next(\WeakUntil{\neg(A\wedge p)}{(B\wedge q)})$\\
-	 %\midrule
-	 
-	 %\parbox[t]{2mm}{\multirow{2}{*}{\rotatebox[origin=c]{90}{\textit{Not.}}}} & \textsf{NotCoExistence($A,p,B,q$) } & The activation \texttt{nand} the target happen.&  $\neg(\Future(A\wedge p)\wedge\Future(B\wedge q))$\\
-	 %& \textsf{NotSuccession($A,p,B,q$)} & The activation requires that no target condition should follow.& $\Globally((A\wedge p)\Rightarrow \neg\Future(B\wedge q))$ \\
-	 \bottomrule
-\end{tabular}}
+\caption{Declare \textsf{templates} from all competing approaches: $A$ ($B$) denotes an activity label; $p$ ($q$) is a data payload condition.}\label{tab:dt}
+\includegraphics[scale=1.4]{fig/tabdecl}
 \end{table*} 
 
 \textit{As an example, we might be interested to encode a model prescribing that all traces start with events characterised by activities \textsc{C} (activity label) with payload values requiring that values for $x$ (or $y$) are greater than $3$ (or lower than $0$). We also allow events with activities \textsf{A} with $x$ values greater than zero only after the first occurrence of an event \textsf{B}. These two separate conditions can be described by the following data-aware model:}

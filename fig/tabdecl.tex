@@ -1,0 +1,47 @@
+\documentclass{standalone}
+\usepackage{nicematrix}
+\usepackage{booktabs}
+\usepackage{stmaryrd}
+\newcommand{\Next}{\ensuremath{\mathbf{X}}}
+\newcommand{\Globally}{\ensuremath{\mathbf{G}}}
+\newcommand{\Future}{\ensuremath{\mathbf{F}}}
+\newcommand{\WeakUntil}[2]{\ensuremath{{#1}\;\mathbf{W}\;{#2}}}
+\newcommand{\DUntil}[2]{\ensuremath{{#1}\;\mathbf{U}\;{#2}}}
+\newcommand{\MonoDeclareClause}[4]{\textsf{#1}(\texttt{#2},#3,{#4})}
+\newcommand{\DeclareClause}[5]{\textsf{#1}(\texttt{#2},#3,\texttt{#4},#5)}
+\newcommand{\DeclareClauseWithJoin}[6]{\textsf{#1}(\texttt{#2},#3,\texttt{#4},#5)\;\textsf{where}\;#6}
+\usepackage{xspace}
+\newcommand{\Sdeclare}[3]{\DeclareClause{#1}{#2}{\textbf{true}}{#3}{\textbf{true}}}
+\newcommand{\LTLf}{\textup{LTL}\textsubscript{f}\xspace}
+\newcommand{\xLTLf}{\texttt{xt}\textup{LTL}\textsubscript{f}\xspace}
+\newcommand{\MonoDeclareClauseDataless}[2]{\textsf{#1}(\texttt{#2})}
+\newcommand{\DeclareClauseDataless}[3]{\textsf{#1}(\texttt{#2}, \texttt{#3})}
+\begin{document}
+\resizebox{\textwidth}{!}{\begin{tabular}{l|p{9cm}|l}
+	\toprule
+	Exemplifying clause ($c_l$) & Natural Language Specification for Traces & \LTLf Semantics ($\llbracket c_l \rrbracket$)\\
+	\midrule
+	\textsf{Init($A,p$)} &  The trace should start with an activation & $A\wedge p$\\
+	\textsf{Exists($A,p,n+1$)} & Activations should occur at least $n$ times & $\Future(A\wedge p \left[\wedge \Next (\llbracket\textsf{Exists} (A,p,n)\rrbracket)\right]_{n>0})$\\
+	 %& \textsf{Absence($A,p,n+1$)}  & Activations should occur at most $n$ times & $\neg \llbracket\textsf{Exists}$($A,p,n+1$)$\rrbracket$\\
+	\textsf{Precedence($A,p,B,q$)}  & Events preceding the activations should not satisfy the target & $\WeakUntil{\neg(B\wedge p)}{(A\wedge p)}$\\
+	\textsf{ChainPrecedence($A,p,B,q$) }  & The activation is immediately preceded by the target. & $\Globally(\Next(A\wedge p)\Rightarrow (B\wedge q))$\\
+	%& \textsf{Choice($A,p,A',p'$) }  & One of the two activation  conditions must appear. & $\Future(A\wedge p)\vee\Future(A'\wedge p')$ \\
+	  \textsf{Response($A,p,B,q$) } & The activation is either followed by or simultaneous to  the target. & $\Globally((A\wedge p)\Rightarrow\Future(B\wedge q))$ \\
+	  \textsf{ChainResponse($A,p,B,q$) }  & The activation is immediately followed by the target. & $\Globally((A\wedge p)\Rightarrow \Next(B\wedge q))$\\
+	  \textsf{RespExistence($A,p,B,q$) }  & The activation requires the existence of the target.& $\Future(A\wedge p)\Rightarrow\Future(B\wedge q)$ \\
+	 %& \textsf{ExlChoice($A,p,A',p'$) } & Only one activation condition must happen. & $\llbracket\DeclareClause{Choice}{A}{p}{A'}{p'}\rrbracket\wedge \llbracket\DeclareClause{NotCoExistence}{A}{p}{A'}{p'}\rrbracket$\\ 
+	  \textsf{CoExistence($A,p,B,q$) }  & \textsf{RespExistence}, and vice versa. & $ \llbracket\DeclareClause{RespExistence}{A}{p}{B}{q}\rrbracket\wedge \llbracket\DeclareClause{RespExistence}{B}{q}{A}{p}\rrbracket$\\
+	 \textsf{Succession($A,p,B,q$) }  & The target should only follow the activation. & $\llbracket\DeclareClause{Precedence}{A}{p}{B}{q}\rrbracket\wedge \llbracket\DeclareClause{Response}{A}{p}{B}{q}\rrbracket$\\
+
+	  \textsf{ChainSuccession($A,p,B,q$) }  & Activation immediately follows the target, and the target immediately preceeds the activation. & $\Globally((A\wedge p)\Leftrightarrow\Next(B\wedge q))$\\
+	 \textsf{AltResponse($A,p,B,q$) }  & If an activation occurs, no other activations must happen until the target occurs.  & $\Globally((A\wedge p)\Rightarrow(\DUntil{\neg(A\wedge p)}{(B\wedge q)}))$\\
+	 \textsf{AltPrecedence($A,p,B,q$) }  & Every activation must be preceded by an target, without any other
+	 activation in between &   $\llbracket\DeclareClause{Precedence}{A}{p}{B}{q}\rrbracket\wedge \Globally((A\wedge p)\Rightarrow \Next(\WeakUntil{\neg(A\wedge p)}{(B\wedge q)})$\\
+	 %\midrule
+	 
+	 %\parbox[t]{2mm}{\multirow{2}{*}{\rotatebox[origin=c]{90}{\textit{Not.}}}} & \textsf{NotCoExistence($A,p,B,q$) } & The activation \texttt{nand} the target happen.&  $\neg(\Future(A\wedge p)\wedge\Future(B\wedge q))$\\
+	 %& \textsf{NotSuccession($A,p,B,q$)} & The activation requires that no target condition should follow.& $\Globally((A\wedge p)\Rightarrow \neg\Future(B\wedge q))$ \\
+	 \bottomrule
+\end{tabular}}
+\end{document}
