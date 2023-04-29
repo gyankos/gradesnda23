@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{nicematrix}
+\usepackage{booktabs}
+\usepackage{multirow}
+\begin{document}
+\begin{NiceTabular}{rl|rrr|r}
+  \toprule
+ Model Size & Model Type & $|\Sigma|$ & $|V|$ & $|E|$ &  $t_p$ (ms)\\ 
+  \midrule
+ \multirow{ 2}{*}{2} & dataless &  16 &  34 & 485 & 0.50 \\ 
+    & data-aware &  19 &  41 & 643 & 0.69 \\ 
+\hdottedline
+   \multirow{ 2}{*}{4} & dataless &  16 & 231 & 3,025 & 3.00 \\
+    & data-aware &  20 & 293 & 4,641 & 4.56 \\  
+\hdottedline
+   \multirow{ 2}{*}{6} & dataless &  16 & 248 & 3,136 & 6.63 \\ 
+    & data-aware &  23 & 341 & 5,676 & 13.58 \\ 
+\hdottedline
+   \multirow{ 2}{*}{8} & dataless &  16 & 822 & 9,790 & 16.85 \\ 
+    & data-aware &  32 & 1,419 & 30,467 & 68.96 \\  
+   \bottomrule
+\end{NiceTabular}
+\end{document}
