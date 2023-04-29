@@ -121,12 +121,12 @@ fpencildraw/.style={
 
 \draw[fpencildraw,draw,->>,thick] (src) -- (two);
 
-\draw [<->]  (0:1)   arc (0:60:1)   node[midway,above right]{$\beta$};
+\draw [<->]  (0:1)   arc (0:58:1)   node[midway, right]{$n\beta$};
 
 \node at (2.5,1) {\textsc{BoundedBFS}};
 \node[fill=orange!30] (ac) at (9.3,1) {\textsc{\color{red}SomeCycles}};
 
-\draw[draw=black,dashed,|<->|] ($(c)-(0,0.5)$) -- ($(c.0)-(0,0.5)$) node [midway,below] {$h_{T^{src}}(i)$};
+\draw[draw=black,dashed,|<->|] ($(c)-(0,0.5)$) -- ($(c.0)-(0,0.5)$) node [midway,below] {$k$};
 
 
   \path (c.0) -- (c.20) node[draw,strike out, pos=0.1,draw=red] {}
