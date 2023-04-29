@@ -1,61 +1,13 @@
-%%
-%% This is file `sample-sigconf.tex',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% samples.dtx  (with options: `sigconf')
-%%
-%% IMPORTANT NOTICE:
-%%
-%% For the copyright see the source file.
-%%
-%% Any modified versions of this file must be renamed
-%% with new filenames distinct from sample-sigconf.tex.
-%%
-%% For distribution of the original source see the terms
-%% for copying and modification in the file samples.dtx.
-%%
-%% This generated file may be distributed as long as the
-%% original source files, as listed above, are part of the
-%% same distribution. (The sources need not necessarily be
-%% in the same archive or directory.)
-%%
-%%
-%% Commands for TeXCount
-%TC:macro \cite [option:text,text]
-%TC:macro \citep [option:text,text]
-%TC:macro \citet [option:text,text]
-%TC:envir table 0 1
-%TC:envir table* 0 1
-%TC:envir tabular [ignore] word
-%TC:envir displaymath 0 word
-%TC:envir math 0 word
-%TC:envir comment 0 0
-%%
-%%
-%% The first command in your LaTeX source must be the \documentclass command.
-
 \documentclass[sigconf]{acmart}
 
-\let\comment\undefined		% Undefine amsmath comment, macro confict otherwise
+\let\comment\undefined		
 \usepackage{easyReview}
 \usepackage{savesym}
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{multirow}
-%\usepackage[english]{babel}
-%\usepackage{environ}
-%\usepackage{newclude}
-%\usepackage{rotating}
-%\usepackage{pdflscape}
-%%% Pseudocodes
-%\usepackage{inconsolata}
-%\usepackage{floatrow}
-%\newfloatcommand{capbtabbox}{table}[][\FBwidth]
 \usepackage{graphicx}
 \usepackage{caption}
-%\usepackage{subcaption}
 
 \newtheorem{problem}{Problem}
 \usepackage{tabularx}% added for table design
@@ -99,9 +51,6 @@
 \usepackage{algorithm,algorithmicx}
 \algnewcommand{\IIf}[1]{\State\algorithmicif\ #1\ \algorithmicthen}
 \algnewcommand{\EndIIf}{\unskip\ \algorithmicend\ \algorithmicif}
-%\makeatletter
-%\algrenewcommand\ALG@beginalgorithmic{\ttfamily}
-%\makeatother
 \usepackage{amsmath,stmaryrd}
 %% mathematics
 \usepackage{braket} %% Set, tuple...
@@ -190,62 +139,6 @@
 \newdimen\highlight@previous
 \newdimen\highlight@current
 
-%\DeclareRobustCommand*\highlight[1][]{%
-%	\SOUL@setup
-%	%
-%	\def\SOUL@preamble{%
-%		\begin{tikzpicture}[overlay, remember picture]
-%			\highlight@BeginHighlight
-%			\highlight@EndHighlight
-%		\end{tikzpicture}%
-%	}%
-%	%
-%	\def\SOUL@postamble{%
-%		\begin{tikzpicture}[overlay, remember picture]
-%			\highlight@EndHighlight
-%			\highlight@DoHighlight
-%		\end{tikzpicture}%
-%	}%
-%	%
-%	\def\SOUL@everyhyphen{%
-%		\discretionary{%
-%			\SOUL@setkern\SOUL@hyphkern
-%			\SOUL@sethyphenchar
-%			\tikz[overlay, remember picture] \highlight@EndHighlight ;%
-%		}{%
-%		}{%
-%			\SOUL@setkern\SOUL@charkern
-%		}%
-%	}%
-%	%
-%	\def\SOUL@everyexhyphen##1{%
-%		\SOUL@setkern\SOUL@hyphkern
-%		\hbox{##1}%
-%		\discretionary{%
-%			\tikz[overlay, remember picture] \highlight@EndHighlight ;%
-%		}{%
-%		}{%
-%			\SOUL@setkern\SOUL@charkern
-%		}%
-%	}%
-%	%
-%	\def\SOUL@everysyllable{%
-%		\begin{tikzpicture}[overlay, remember picture]
-%			\path let \p0 = (begin highlight), \p1 = (0,0) in \pgfextra
-%			\global\highlight@previous=\y0
-%			\global\highlight@current =\y1
-%			\endpgfextra (0,0) ;
-%			\ifdim\highlight@current < \highlight@previous
-%			\highlight@DoHighlight
-%			\highlight@BeginHighlight
-%			\fi
-%		\end{tikzpicture}%
-%		\the\SOUL@syllable
-%		\tikz[overlay, remember picture] \highlight@EndHighlight ;%
-%	}%
-%	\SOUL@
-%}
-
 
 \makeatother
 
@@ -291,65 +184,18 @@
 \copyrightyear{2023}
 \acmYear{2023}
 \setcopyright{rightsretained}
-
-
- 
-\acmConference[IDEAS 2023]{International Database Engineered Applications Symposium Conference}{May 5--7, 2023}{Heraklion, Crete, Greece}
-\acmBooktitle{Proceedings of the 27th International Database Engineered Applications Symposium (IDEAS’23). ACM, Heraklion, Crete, Greece}
-\acmDOI{10.1145/3589462.3589491}
-\acmISBN{979-8-4007-0744-5/23/05}
-%\acmPrice{15.00}
-
-\usepackage{pdfcomment}
+\acmConference[GRADES \& NDA '23]{Joint Workshop on Graph Data Management Experiences \& Systems (GRADES) and Network Data Analytics (NDA)}{June 18, 2023}{Seattle, WA, USA}
+\acmBooktitle{Joint Workshop on Graph Data Management Experiences \& Systems (GRADES) and Network Data Analytics (NDA) (GRADES \& NDA '23), June 18, 2023, Seattle, WA, USA}
+\acmDOI{10.1145/3594778.3594881}
+\acmISBN{979-8-4007-0201-3/23/06}
 \usepackage{stfloats}
-%%
-%% Submission ID.
-%% Use this when submitting an article to a sponsored event. You'll
-%% receive a unique submission ID from the organizers
-%% of the event, and this ID should be used as the parameter to this command.
-%%\acmSubmissionID{123-A56-BU3}
-
-%%
-%% For managing citations, it is recommended to use bibliography
-%% files in BibTeX format.
-%%
-%% You can then either use BibTeX with the ACM-Reference-Format style,
-%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
-%% support for advanced citation of software artefact from the
-%% biblatex-software package, also separately available on CTAN.
-%%
-%% Look at the sample-*-biblatex.tex files for templates showcasing
-%% the biblatex styles.
-%%
-
-%%
-%% The majority of ACM publications use numbered citations and
-%% references.  The command \citestyle{authoryear} switches to the
-%% "author year" style.
-%%
-%% If you are preparing content for an event
-%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
-%% citations and references.
-%% Uncommenting
-%% the next command will enable that style.
-%%\citestyle{acmauthoryear}
-
 \usepackage{footmisc}
 \usepackage{subcaption}
-
 \algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
-
 \DeclareCaptionFormat{cont}{#1 (cont.)#2#3\par}
-%%
-%% end of the preamble, start of the body of the document source.
 
 \sloppy
 \begin{document}
-
-%%
-%% The "title" command has an optional parameter,
-%% allowing the author to define a "short title" to be used in page headers.
-
 
 	\title[Fast Synthetic Data-Aware Log Generation for Temporal Declarative Models]{Fast Synthetic Data-Aware Log Generation for\\ Temporal Declarative Models}
 
@@ -357,38 +203,17 @@
 \orcid{0000-0002-1844-0851}
 \email{Giacomo.Bergami@newcastle.ac.uk}
 \affiliation{%
-	\institution{Newcastle University\\ School of Computing}
+	\institution{Newcastle University, School of Computing}
+ \city{Newcastle Upon Tyne}
 	\country{United Kingdom}
 }
 
-%\subtitle{[Student Paper]}
-%%
-%% The "author" command and its associated commands are used to define
-%% the authors and their affiliations.
-%% Of note is the shared affiliation of the first two authors, and the
-%% "authornote" and "authornotemark" commands
-%% used to denote shared contribution to the research.
 
-
-%%
-%% By default, the full list of authors will be used in the page
-%% headers. Often, this list is too long, and will overlap
-%% other information printed in the page headers. This command allows
-%% the author to define a more concise list
-%% of authors' names for this purpose.
-	\renewcommand{\shortauthors}{Giacomo Bergami}
-
-%%
-%% The abstract is a short summary of the work to be presented in the
-%% article.
 \begin{abstract}
 Business Process Management algorithms are heavily limited by suboptimal algorithmic implementations that cannot leverage state-of-the-art algorithms in the field of relational and graph databases. The recent interest in this discipline for various IT sectors (cyber-security, Industry 4.0, and e-Health) calls for defining new algorithms  improving the performance of existing ones. This paper focuses on generating several traces collected in a log from declarative temporal models by pre-emptively representing those as a specific type of finite state automaton: we show that this task boils down to a single-source multi-target graph traversal on such automata where both the number of distinct paths to be visited as well as their length are bounded. This paper presents a novel algorithm running in polynomial time over the size of the declarative model represented as a graph and the desired log's size. The final experiments show that the resulting algorithm outperforms the state-of-the-art data-aware and dataless sequence generations in business process management.
 \end{abstract}
 
-%%
-%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
-%% Please copy and paste the code instead of the example below.
-%%
+
 \begin{CCSXML}
 <ccs2012>
    <concept>
@@ -445,7 +270,7 @@ In computer science, Business Process Management refers to the investigation of 
 \quad\\ \medskip\medskip
 \subcaption{Atoms associated to the \textsf{A}-labelled events.}\label{Alabelatom}
 \end{minipage}
-\caption{Prodeduralisation of the declarative model in Eq.\ref{eq:moddataaw}.}
+\caption{Proceduralisation of the declarative model in Eq.\ref{eq:moddataaw}.}
 \end{figure}
 \begin{figure}[!t]
 \centering
@@ -541,7 +366,7 @@ Our proposed solution is also interested in computing all the simple paths betwe
 
 Johnson's algorithms for returning all the possible circuits in a graph \cite{doi:10.1137/0204007} allows a complete enumeration of all the possible graphs' circuits in time $O((|V|+|E|)(c+1))$, where $c$ is the total number of possible circuits within the graph. This is efficiently computed by restricting the generation of the circuits to each strong connected component of a graph while keeping tracks of the cycles being traversed. As the number of the circuits $c$ grows exponentially with the number of nodes and edges with the graph, such algorithm becomes quickly intractable for large graphs \cite{DBLP:conf/fcs/HawickJ08}. Therefore, we tolerate an approximate solution to this achievable through a simple visit of the graph through DFS, as the resulting loops will be tangent to any aforementioned simple path. 
 
-Graph $\theta$-Joins \cite{DBLP:conf/ideas/Bergami21} are binary graph  operators returning one single graph, where each vertex in the resulting graph is the result of merging two vertices, one for each operand, matching a binary $\theta$ predicate. Different graph joins algorithms might combine edges differently. While the conjunctive join is useful to schema matching algorithms \cite{DBLP:books/sp/Melnik04}, disjunctive joins are used for merging communications networks. This paper is going to use for the first time conjunctive joins for speeding up the computation of the product of finite state automata; the resulting automata accepts the string iff. the same string is jointly accepted by the two original automata. For using this algorithm, we need to shift the labels from the edges to the vertices (\textit{node Shift} in \figurename~\ref{fig:transform}) and back (\textit{edge Shift}) while guaranteeing that the resulting automata are equivalent (i.e., they accepts the same strings).
+Graph $\theta$-Joins \cite{DBLP:conf/ideas/Bergami21} are binary graph  operators returning one single graph, where each vertex in the resulting graph is the result of merging two vertices, one for each operand, matching a binary $\theta$ predicate. Different graph joins algorithms might combine edges differently. While the conjunctive join is useful to schema matching algorithms \cite{DBLP:books/sp/Melnik04}, disjunctive joins are used for merging communications networks. This paper will use conjunctive joins for the first time to speed up the computation of the product of finite state automata; the resulting automaton accepts the string iff. the same string is jointly accepted by the two original automata. %For using this algorithm, we need to shift the labels from the edges to the vertices (\textit{node Shift} in \figurename~\ref{fig:transform}) and back (\textit{edge Shift}) while guaranteeing that the resulting automata are equivalent (i.e., they accepts the same strings).
 
 
 
@@ -576,7 +401,7 @@ Given the atomised representation of the model, we then instantiate the activati
 As a 
 Next, % step, 
 we %want  to 
-efficiently generate a single automaton accepting the strings that are jointly accepted by all the instantiated automata. For this, we need to first shift the graph labels from the edges to the nodes (\textit{node Shift}) while creating the indexing data structures required by the graph equi-join algorithm. We also map each node label to the nodes sharing the same given label. In the resulting graph, we state that a node is an accepting (initial) node if and only if this node was the result of merging together two nodes from their respective operands which were both accepting (initial) vertices. After this, we shift the labels back to the edges, as this leads to a more compact graph representation with a reduced amount of nodes (\textit{edge Shift}).
+efficiently generate a single automaton accepting the strings that are jointly accepted by all the instantiated automata. For this, we need to first shift the graph labels from the edges to the vertices (\textit{node Shift}) while creating the indexing data structures required by the graph equi-join algorithm. We also map each node label to the nodes sharing the same given label. In the resulting graph, we state that a node is an accepting (initial) node if and only if this node was the result of merging together two nodes from their respective operands which were both accepting (initial) vertices. After this, we shift the labels back to the edges, as this leads to a more compact graph representation with a reduced amount of nodes (\textit{edge Shift}).
 
 %The \texttt{ODFA} Instantiation of a Declare model $\mathcal{M}$ works as follows.
 %
@@ -711,46 +536,46 @@ At this stage, the log being generated is dataless, where each event is only rem
 
 \section{Experimental Analysis}\label{sec:exp}
 Our benchmarks exploited a Dell Mobile Precision Workstation 5760 on Ubuntu 22.04: Intel® Xeon(R) W-11955M CPU @ 2.60GHz $\times$ 16, 64GB DDR4 3200MHz RAM, 500 GB of free disk space. We generated four declarative models of increasing number of clauses (from 2 to 8), where the $i$-th model is always a subset of the $i+1$-th one. For a better comparing our system with both \texttt{MINERful} generating dataless logs and
-\texttt{MP-Declare Log Generator} generating data-aware ones, we generated both a data-aware and a dataless version of the declarative models by first generating the data-aware models; the dataless ones are generated by replacing in the formerthe data conditions in the former with \textbf{true} predicates. The resulting datasets for both our implementation and the competing approaches are freely available\footnote{\url{https://osf.io/2pmvs/}}. After benchmarking our proposed solution in proceduralisation and graph traversal times (\S\ref{ssec:proposed}), we separatedly compare \texttt{MINERful} against our solution with a dataless model (\S\ref{ssec:dataless}) as well as \texttt{MP-Declare Log Generator} against our solution with a data-aware model (\S\ref{ssec:dataaware}). As the competing solutions can neither provide benchmarking times for the sole graph traversal algorithm nor disable the serialisation of the returned traces to disk thus limiting the overall running time, we compare their overall running time with our ours where the time for all the phases is included. This last analysis will remark that the running time is heavily bounded by the serialisation time.
+\texttt{MP-Declare Log Generator} generating data-aware ones, we generated both a data-aware and a dataless version of the declarative models by first generating the data-aware models; the dataless ones are generated by replacing in the formerthe data conditions in the former with \textbf{true} predicates. The resulting datasets for both our implementation and the competing approaches are freely available\footnote{\url{https://osf.io/2pmvs/}}. After benchmarking our proposed solution in proceduralisation and graph traversal times (\S\ref{ssec:proposed}), we separatedly compare \texttt{MINERful} against our solution with a dataless model (\S\ref{ssec:dataless}) as well as \texttt{MP-Declare Log Generator} against our solution with a data-aware model (\S\ref{ssec:dataaware}). As the competing solutions can neither provide benchmarking times for the sole graph traversal algorithm nor disable the serialisation of the returned traces to disk thus limiting the overall running time, we compare their overall running time with our ours. This last analysis will remark that the running time is heavily bounded by the serialisation time.
 
 
 \begin{table}[!t]
 \centering
 \caption{Model proceduralisation time ($t_p$) in milliseconds.}\label{tab:proceduralisation}
-\includegraphics[scale=.8]{fig/tabmod}
+\includegraphics[scale=.7]{fig/tabmod}
 \end{table}
 \subsection{Benchmarking the Proposed Solution}\label{ssec:proposed}
 
 
-\textit{Proceduralisation time.} \tablename~\ref{tab:proceduralisation} shows the running time required to transform a delcarative model into its graph and propositional counterpart. Results are provided for both the dataless and the data-aware model. Please observe that this phase is independent from the log parameters, and therefore we are only interested in comparing the time required to generate a procedural model out of the declarative one ($t_p$) against the set of the overall $\Sigma$ associated to the graph as well as the number of nodes $|V|$ and edges $|E|$ associated to the returned graph. $t_p$ considers the time to instantiate the graphs as stored in the cache, computing the node shift for each of the instantiated graphs, computing the conjunctive graph join across those, as well as computing the edge shift on the resulting joined graph. Our analysis showed a stronger correlation between running time and number of edges ($p\geq 0.99$) while the correlation with the number of the atoms and model size is quite limited. This remarks that the instantiation process as well as the multi-graph-join step is heavily bounded by the number of the edges in each single graph. Results show that there is almost a linear correlation between the size of the resulting graph's edge $|E|$ with the overall running time, thus showing optimal algorithmic time.\medskip
+\textit{Proceduralisation time.} \tablename~\ref{tab:proceduralisation} shows the running time required to transform a declarative model into its propositional counterpart. Results are provided for both the dataless and the data-aware model. As this phase is independent of the log parameters, we are only interested in comparing the time required to generate a procedural model out of the declarative one ($t_p$) against the set of the overall $\Sigma$ associated with the graph, as well as the number of nodes $|V|$ and edges $|E|$ associated to the returned graph. $t_p$ considers the time to instantiate the graphs as stored in the cache,  the node shift for each instantiated graph,  the conjunctive graph join across those, and the edge shift on the resulting joined graph. Our analysis showed a stronger correlation between running time and the number of edges ($p\geq 0.99$) while the correlation with the number of atoms and model size is quite limited. This remarks that the instantiation process as well as the multi-graph-join step is heavily bounded by the number of edges in each single graph. Results show an almost linear correlation between the size of the resulting graph's edge $|E|$ with the overall running time, thus showing optimal algorithmic time.\medskip
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\linewidth]{fig/TraversingTimesSolo}
 \caption{Graph Traversal times in milliseconds grouped by model size. Colours differentiate different types of models, while line style and symbol shape reflect different trace lengths ($\varsigma_\textit{min}=\varsigma_\textit{max}=\varsigma$).}\label{traversetimesolo}
 \end{figure}
-\textit{Graph Traversal.} We analysed the running times for traversing the graphs resulting from the previous phase: we wanted then to generate logs of different sizes and growing with a tenfold increase ($|\mathcal{L}|=\ell$ and $\ell\in{10^1,10^2,10^3,10^4}$); to provide more legible plots, we constrained the minimum $\varsigma_\textit{min}$ and maximum $\varsigma_\textit{max}$ trace length to the same value $\varsigma$, also growing by a tenfold increases ($\varsigma\in\{10^1,10^2,10^3,10^4\}$). We kept the random edge sample factor to $\beta=.9$ and tested our algorithm on both dataless and data-aware models. \figurename~\ref{traversetimesolo} shows that,  in the best case scenario, traversing automata generated from dataless models is faster than traversing ones generated from data-aware ones, as the former have usually a smaller size than the others while, in the worst case scenario, they exhibit comparable running times. We can also observe that running times are heavily affected by the trace length of the results to be provided: this is more evident while going from $\varsigma=10^3$ to $\varsigma=10^4$, where we remark a tenfold increase in running time. Such parting becomes less evident for lesser trace length increases. Running times are also quadratic on the size of the desired log size. Model sizes heavily influence the running times only when smaller logs are returned, while desired log sizes heavily influence the running times otherwise. Our implementation gives fast graph traversal in less than one second. 
+\textit{Graph Traversal.} We analysed the running times for traversing the graphs resulting from the previous phase: we wanted then to generate logs of different sizes and growing with a tenfold increase ($|\mathcal{L}|=\ell$ and $\ell\in{10^1,10^2,10^3,10^4}$); to provide more legible plots, we constrained the minimum $\varsigma_\textit{min}$ and maximum $\varsigma_\textit{max}$ trace length to the same value $\varsigma$, also growing by a tenfold increase ($\varsigma\in\{10^1,10^2,10^3,10^4\}$). We kept the random edge sample factor to $\beta=.9$ and tested our algorithm on both dataless and data-aware models. \figurename~\ref{traversetimesolo} shows that,  in the best case scenario, traversing automata generated from dataless models is faster than traversing ones generated from data-aware ones, as the former have usually a smaller size than the others while, in the worst case scenario, they exhibit comparable running times. We can also observe that running times are heavily affected by the trace length of the results to be provided: this is more evident while going from $\varsigma=10^3$ to $\varsigma=10^4$, where we remark a tenfold increase in running time. Such discrepancy becomes less evident at inferior trace length increases. Running times are also polynomial on the size of the desired log size. Model sizes influence the running times only when smaller logs are returned, while desired log sizes influence the running times otherwise. Our implementation gives fast graph traversal in less than one second. 
  
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\linewidth]{fig/Minermer.png}
-\caption{Complete Log Generation Time for dataless declarative models.}\label{dataless}
+\caption{Complete Log Generation Time for dataless declarative models, grouped by model size.}\label{dataless}
 \end{figure}
 \subsection{Dataless Log Generation}\label{ssec:dataless}
-Results in \figurename~\ref{dataless} compare the full log generation time for both our solution with a dataless model and \texttt{MINERful}, also accepting dataless models in a specific \texttt{JSON} format. Our aformentioned dataset provides the \texttt{JSON} representation required for such generator. To enhance \texttt{MINERful}'s performances, we decided to serialise the log in tabular separated format for both the competitor and our implementation. We can observe that our solution constantly outperforms \texttt{MINERful} by at least one order of magnitude. This difference is even more remarkable for longer traces and bigger traces, where our solution can be at most two order of magnitudes more performant than our competitor. As the serialisation into a simplistic format annihilate any potential overhead from verbose XES serialisation, longer running times might be only be ascribed by the underperforming algorithms being choose for either traversing the graph or generating the graph to be traversed out of each declarative clause. As the tool does not provide further running times for each specific phase, we cannot further ascertain which might be the primary cause of this overhead. Last, by comparing our tools' overall running time with the graph traversal and model proceduralisation phases, we can clearly remark that the overall running time is heavily dominated by the serialisation of the generated log in secondary memory.
+Results in \figurename~\ref{dataless} compare the full log generation time for both our solution with a dataless model and \texttt{MINERful}, also accepting dataless models in a specific \texttt{JSON} format. Our aformentioned dataset provides the \texttt{JSON} representation required for such generator. To enhance algorithms' performances, we serialise their resulting logs in a tabular separated format. Our solution constantly outperforms \texttt{MINERful} by at least one order of magnitude. This difference is even more remarkable for longer traces and larger logs, where our solution can be at most two orders of magnitudes more performant than our competitor. As the serialisation into a simplistic format annihilate any potential overhead from verbose XES serialisation, longer running times might be only be ascribed by the underperforming algorithms being choose for either traversing the graph or generating the graph to be traversed out of each declarative clause. As the tool does not provide further running times for each specific phase, we cannot further ascertain which might be the primary cause of this overhead. Last, by comparing our tools' overall running time with the graph traversal and model proceduralisation phases, we can clearly remark that the overall running time is heavily dominated by the serialisation of the generated log in secondary memory.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\linewidth]{fig/Datamer.png}
-\caption{Complete Log Generation Time for data-aware declarative models.}\label{dataware}
+\caption{Complete Log Generation Time for data-aware declarative models, grouped by model size.}\label{dataware}
 \end{figure}
 \subsection{Data-Aware Log Generation}\label{ssec:dataaware}
-Results in \figurename~\ref{dataware} establish the same experimental setting as in the previous paragraph but where both \texttt{MP-Declare (Log Generator)} and our proposed solution considered data-aware models. We stopped running both generators when they run for more than $10^6$ milliseconds. Both generators were set to serialise the log in XES format. Our competitor can efficiently generate data when traces are considerably short ($\varsigma=10$). Given that our solution was able to serialise the log in less than $10^6$ ms, despite taking more time than serialising an equivalent amount of data in a tab separated format (cfr. \figurename~\ref{dataless}), this remarks that our competitor spends most of the time running the Alloy generator for which extract data-aware traces. These experiments therefore remark the superiority of our graph-based approach for generating data-aware logs.
+Results in \figurename~\ref{dataware} leverage the same experimental setting as in the previous paragraph: both \texttt{MP-Declare (Log Generator)} and our proposed solution considered data-aware models. We stopped running both generators when they run for more than $10^6$ milliseconds. Both generators were set to serialise the log in XES format. Our competitor can only efficiently generate data when traces are considerably short ($\varsigma=10$). Given that our solution was able to serialise the log in less than $10^6$ ms, despite taking more time than serialising an equivalent amount of data in a tab-separated format (cfr. \figurename~\ref{dataless}), this remarks that our competitor spends most of the time running the Alloy generator for which extract data-aware traces. These experiments remark on the superiority of the graph-based approach for log generation if compared to non-graph-based approaches (\texttt{MP-Declare}).
 
 \section{Conclusions and Future Works}\label{sec:conclfut}
-This paper presented a novel solution for generating data-aware and dataless logs out of declarative models. After converting such models into ``pruned'' finite state automata, our solution reaps the benefit of state-of-the-art binary graph operators while proposing a novel algorithm for efficiently traversing those generated graphs. Our solution outperforms existing state-of-the-art log generators from the Business Process Management domain.
+This paper presented a novel solution for generating data-aware and dataless logs out of declarative models. After converting such models into ``pruned'' finite state automata, our solution reaps the benefit of state-of-the-art binary graph operators while proposing a novel algorithm for efficiently traversing those generated graphs. Our solution outperforms existing state-of-the-art log generators from the Business Process Management domain, both generating a sample of log traces from the procedural model representation and exploiting heuristics for engaging with the graph traversal (e.g., random walks).
 
-Future works will assess the compatibility of the graphs generated by FLLOAT with its newer version, \texttt{logaut}\footnote{\url{https://github.com/whitemech/logaut}}, and will assess different possible initial graph representations for \LTLf formul\ae as a basis for trace generations. Also, the extension of such algorithm to any possible graph representation will require changing the algorithm for returning the circuits in the graph so to not necessarily on structural properties of graphs being generated by declarative clauses, such that the existence of at least one circuit over one single graph node. Our future endeavours will be therefore directed in finding better heuristics for generating some circuits occurring in the graph. We will also investigate the possibility of extending such solution by supporting declarative clauses expressing data correlation conditions between activated and targeted events. Last, we will also consider defining novel data representations for data-aware logs significantly improving the data serialisation time to disk, thus attempting to further improving the running time of the proposed solution.
+Future works will assess the compatibility of the graphs generated by FLLOAT with its newer version, \texttt{logaut}\footnote{\url{https://github.com/whitemech/logaut}}, and will assess different possible initial graph representations for \LTLf formul\ae~ as a basis for trace generations. Also, an extension of the graph traversal algorithm to any possible graph representation will require changing the algorithm for returning the circuits in the graph so as not to rely on structural properties of procedural models generated from declarative ones, such that the existence of at least one circuit over one single graph node. Our future endeavours will be therefore directed at finding better heuristics for generating some circuits occurring in the graph. We will also investigate the possibility of extending such a solution by supporting declarative clauses expressing data correlation conditions between activated and targeted events.  Future experiments will be performed to better compare the adequacy and quality of the traces generated by the different generators which, however, must fulfil the requirements of the time model. Last, we will also consider defining novel data representations for data-aware logs significantly improving the data serialisation time to disk, thus attempting to further improve the running time of the overall solution.
 
 
 \bibliographystyle{ACM-Reference-Format}
