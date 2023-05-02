@@ -1,4 +1,4 @@
-\documentclass[sigconf]{acmart}
+\documentclass[acmengage]{acmart}
 
 \let\comment\undefined		
 \usepackage{easyReview}
@@ -183,7 +183,8 @@
 
 \copyrightyear{2023}
 \acmYear{2023}
-\setcopyright{rightsretained}
+\setcopyright{cc}
+\setcctype[4.0]{by-nc-sa}
 \acmConference[GRADES \& NDA '23]{Joint Workshop on Graph Data Management Experiences \& Systems (GRADES) and Network Data Analytics (NDA)}{June 18, 2023}{Seattle, WA, USA}
 \acmBooktitle{Joint Workshop on Graph Data Management Experiences \& Systems (GRADES) and Network Data Analytics (NDA) (GRADES \& NDA '23), June 18, 2023, Seattle, WA, USA}
 \acmDOI{10.1145/3594778.3594881}
@@ -274,7 +275,7 @@ In computer science, Business Process Management refers to the investigation of 
 \end{figure}
 \begin{figure}[!t]
 \centering
-\includegraphics[scale=.7]{fig/loggenerator}
+\includegraphics[scale=.6]{fig/loggenerator}
 \caption{Generating a Data-Aware Log (\textit{right}) from the paths collected after traversing the procedural model in Figure \ref{dataawareex} and generating some data in compliance with the atoms defined in Figure \ref{Clabelatom} and \ref{Alabelatom}.}\label{loggenex}
 \end{figure}
 \begin{table*}[!t]
@@ -392,10 +393,15 @@ In the resulting graph, we state that a vertex is an accepting (initial) state i
 
 
 \begin{figure}[!t]
-\includegraphics[width=\linewidth]{fig/algo_intuition}
+\includegraphics[width=.9\linewidth]{fig/algo_intuition}
 \caption{Graphical depiction of the proposed algorithm: $k$ denotes the maximum path length at which we can visit at least $\ell$ vertices, $\beta$ denotes the pruning factor given the branching factor $n$, $\pi_{u,v}^i$ denotes the $i$-th simple path from source $u$ to destination $v$, and $\lambda_j$ denotes a circuit in the sub-graph describing all the possible paths from $i$ to \textit{dst}.}\label{fig:depict}
 \end{figure}
 \begin{algorithm}[!t]
+\begingroup % trick algorithm2e into thinking we're in one column mode
+	\csname @twocolumnfalse\endcsname
+	\noindent
+	\resizebox{\textwidth}{!}{%
+		\begin{minipage}{1.2\textwidth}
 \begin{algorithmic}[1]
 \Procedure{BoundedBFS}{\texttt{DFA},$T$,$\Phi_T$,$\Phi_\texttt{DFA}$;\;$\beta,\ell,\smin,\smax$}
 %\ForAll{$\textit{src}\in \texttt{ODFA}.\textit{init}$}
@@ -432,6 +438,9 @@ In the resulting graph, we state that a vertex is an accepting (initial) state i
 %\EndFor
 \EndProcedure
 \end{algorithmic}
+\end{minipage}%
+	}% <------------- end of \resizebox
+	\endgroup
  \caption{Generating distinctive trace prefixes, $O(\ell)$.}\label{algo:bbfs}
 \end{algorithm} 
 \paragraph*{\textsc{BoundedBFS}}
@@ -458,6 +467,11 @@ This phase  is run only if the previous phase has not returned enough traces. Su
 
 
 \begin{algorithm}[!t]
+\begingroup % trick algorithm2e into thinking we're in one column mode
+	\csname @twocolumnfalse\endcsname
+	\noindent
+	\resizebox{\textwidth}{!}{%
+		\begin{minipage}{1.2\textwidth}
 \begin{algorithmic}[1]
 \Procedure{FastDepthGT}{\texttt{DFA},$T$,$\Phi_T$,$\Phi_\texttt{DFA}$;\;$\beta,\ell,\smin,\smax$}
 \State $\Lambda\gets$\Call{SomeCycles}{\texttt{DFA}}\label{sec:somecycle}
@@ -487,9 +501,12 @@ This phase  is run only if the previous phase has not returned enough traces. Su
 \State \algorithmicif\ $\ell=0$ \algorithmicthen\ \Return $\mathcal{L}$ \label{loc:sectermcond}
 \EndFor
 \EndFor
-\State \Return $\mathcal{L}$\Comment{\textit{We generated less traces than required}}
+\State \Return $\mathcal{L}$%\Comment{\textit{We generated less traces than required}}
 \EndProcedure
 \end{algorithmic}
+\end{minipage}%
+	}% <------------- end of \resizebox
+	\endgroup
  \caption{Fast Depth Graph Traversal}\label{algo:fdgt}
 \end{algorithm}
 After storing some cycles in $\Lambda$ as discussed in \S\ref{sec:RW} (L. \ref{sec:somecycle}), we associate each vertex in the graph with a subset of cycles $\Lambda$ containing such a vertex (L. \ref{loc:subset}). To minimise the number of graph visits, we sample the accepting paths $\pi$ for each distinct graph vertex $i=$\textit{ptr}.\texttt{node} associated to a trie leaf ($\Phi_T$) providing a path $\varpi$ from the source \textit{src} of length $h$ (L. \ref{loc:varpidef}). We add the resulting  concatenated path $\pi'\gets\pi\circ\varpi$ to the solutions in $\mathcal{L}$ if its length is within the boundaries of minimum and maximum trace length (L. \ref{loc:retinbound}). Otherwise, we try to extend $\pi'$ with some circuits incident to it. To do so, we run the \textsc{MinCoinChange} algorithm for determining how many times we need to extend $\pi'$ with the loops in $\Lambda$ incident to $\pi$. For doing so, we consider the lengths of such loops as the coins' values, while the amount of money $j-|\pi'|$  for each $j\in [\smin,\smax]$ represents the number of edges to be visited for returning the trace. The solution of the \textsc{MinCoinChange} problem will then return us the minimum amount of \textit{times}[scale=.8] we need to traverse a circuit of a given length (\textit{coin}) so to finally reach the desired trace length (L.\ref{loc:EachSolLine}). We choose one circuit among all possible incident circuits to the current simple path and expand it on the path the desired amount of times (L.\ref{loc:expansion}). After this, we put the expanded path in the set of all the possible logs (L.\ref{loc:newtracegen}). We terminate when we reach the desired log size (L.\ref{loc:sectermcond}).
@@ -522,10 +539,10 @@ data-aware models, from which we obtained their dataless counterparts by strippi
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\linewidth]{fig/TraversingTimesSolo}
+\includegraphics[width=.9\linewidth]{fig/TraversingTimesSolo}
 \caption{Graph Traversal times in milliseconds grouped by the model size. Colours differentiate different types of models, while line style and symbol shape reflect different trace lengths ($\varsigma_\textit{min}=\varsigma_\textit{max}=\varsigma$).}\label{traversetimesolo}
 \end{figure}
-\textit{Graph Traversal.} We analysed the running times for traversing the graphs resulting from the previous phase: we wanted then to generate logs of different sizes and growing with a tenfold increase ($|\mathcal{L}|=\ell$ and $\ell\in{10^1,10^2,10^3,10^4}$); to provide more legible plots, we constrained the minimum $\varsigma_\textit{min}$ and maximum $\varsigma_\textit{max}$ trace length to the same value $\varsigma$, also growing by a tenfold increase ($\varsigma\in\{10^1,10^2,10^3,10^4\}$). We kept the random edge sample factor to $\beta=.9$ and tested our algorithm on both dataless and data-aware models. \figurename~\ref{traversetimesolo} shows that,  in the best case scenario, traversing automata generated from dataless models is faster than traversing ones generated from data-aware ones, as the former have usually a smaller size than the others while, in the worst case scenario, they exhibit comparable running times. We can also observe that running times are heavily affected by the trace length of the results to be provided: this is more evident while going from $\varsigma=10^3$ to $\varsigma=10^4$, where we remark a tenfold increase in running time. Such discrepancy becomes less evident at inferior trace length increases. Running times are also polynomial on the size of the desired log size. Model sizes influence the running times only when smaller logs are returned, while desired log sizes influence the running times otherwise. Our implementation gives fast graph traversal in less than one second. 
+\textit{Graph Traversal.} We analysed the running times for traversing the graphs resulting from the previous phase: we wanted then to generate logs of different sizes and growing with a tenfold increase ($|\mathcal{L}|=\ell$ and $\ell\in\{10^1,10^2,10^3,10^4\}$); to provide more legible plots, we constrained the minimum $\varsigma_\textit{min}$ and maximum $\varsigma_\textit{max}$ trace length to the same value $\varsigma$, also growing by a tenfold increase ($\varsigma\in\{10^1,10^2,10^3,10^4\}$). We kept the random edge sample factor to $\beta=.9$ and tested our algorithm on both dataless and data-aware models. \figurename~\ref{traversetimesolo} shows that,  in the best case scenario, traversing automata generated from dataless models is faster than traversing ones generated from data-aware ones, as the former have usually a smaller size than the others while, in the worst case scenario, they exhibit comparable running times. We can also observe that running times are heavily affected by the trace length of the results to be provided: this is more evident while going from $\varsigma=10^3$ to $\varsigma=10^4$, where we remark a tenfold increase in running time. Such discrepancy becomes less evident at inferior trace length increases. Running times are also polynomial on the size of the desired log size. Model sizes influence the running times only when smaller logs are returned, while desired log sizes influence the running times otherwise. Our implementation gives fast graph traversal in less than one second. 
  
 
 \subsection{Dataless Log Generation}\label{ssec:dataless}
@@ -533,8 +550,9 @@ Results in \figurename~\ref{dataless} compare the full log generation time for b
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\linewidth]{fig/Minermer.png}
+\includegraphics[width=.9\linewidth]{fig/Minermer.png}
 \caption{Complete Log Generation Time for dataless declarative models, grouped by the model size.}\label{dataless}
+\vspace*{-.65cm}
 \end{figure}
 
 \subsection{Data-Aware Log Generation}\label{ssec:dataaware}
@@ -542,7 +560,7 @@ Results in \figurename~\ref{dataware} leverage the same experimental setting as 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\linewidth]{fig/Datamer.png}
+\includegraphics[width=.9\linewidth]{fig/Datamer.png}
 \caption{Complete Log Generation Time for data-aware declarative models, grouped by the model size.}\label{dataware}
 \end{figure}
 \section{Conclusions and Future Works}\label{sec:conclfut}
